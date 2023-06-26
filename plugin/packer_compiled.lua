@@ -94,6 +94,11 @@ _G.packer_plugins = {
     path = "/Users/kocunu/.local/share/nvim/site/pack/packer/start/completion-nvim",
     url = "https://github.com/nvim-lua/completion-nvim"
   },
+  ["gruvbox.nvim"] = {
+    loaded = true,
+    path = "/Users/kocunu/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
+    url = "https://github.com/ellisonleao/gruvbox.nvim"
+  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "/Users/kocunu/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
@@ -109,15 +114,30 @@ _G.packer_plugins = {
     path = "/Users/kocunu/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  nvim = {
+    loaded = true,
+    path = "/Users/kocunu/.local/share/nvim/site/pack/packer/start/nvim",
+    url = "https://github.com/catppuccin/nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/Users/kocunu/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
+  ["nvim-dap"] = {
+    loaded = true,
+    path = "/Users/kocunu/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/Users/kocunu/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-markdown-preview"] = {
+    loaded = true,
+    path = "/Users/kocunu/.local/share/nvim/site/pack/packer/start/nvim-markdown-preview",
+    url = "https://github.com/davidgranstrom/nvim-markdown-preview"
   },
   ["nvim-treesitter"] = {
     loaded = true,
@@ -139,24 +159,44 @@ _G.packer_plugins = {
     path = "/Users/kocunu/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["rose-pine"] = {
-    config = { "\27LJ\2\n9\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\26colorscheme rose-pine\bcmd\bvim\0" },
-    loaded = true,
-    path = "/Users/kocunu/.local/share/nvim/site/pack/packer/start/rose-pine",
-    url = "https://github.com/rose-pine/neovim"
+  ["rust-tools.nvim"] = {
+    config = { "\27LJ\2\n<\0\2\5\0\3\0\a6\2\0\0'\4\1\0B\2\2\0029\2\2\2\18\4\1\0B\2\2\1K\0\1\0\nsetup\15rust-tools\frequire\0" },
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/Users/kocunu/.local/share/nvim/site/pack/packer/opt/rust-tools.nvim",
+    url = "https://github.com/simrat39/rust-tools.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/kocunu/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["vim-colors-modern-borland"] = {
+    loaded = true,
+    path = "/Users/kocunu/.local/share/nvim/site/pack/packer/start/vim-colors-modern-borland",
+    url = "https://github.com/letorbi/vim-colors-modern-borland"
+  },
+  ["vim-moonfly-colors"] = {
+    loaded = true,
+    path = "/Users/kocunu/.local/share/nvim/site/pack/packer/start/vim-moonfly-colors",
+    url = "https://github.com/bluz71/vim-moonfly-colors"
+  },
+  vimtex = {
+    loaded = true,
+    path = "/Users/kocunu/.local/share/nvim/site/pack/packer/start/vimtex",
+    url = "https://github.com/lervag/vimtex"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: rose-pine
-time([[Config for rose-pine]], true)
-try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\26colorscheme rose-pine\bcmd\bvim\0", "config", "rose-pine")
-time([[Config for rose-pine]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Filetype lazy-loads
+time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType rust ++once lua require("packer.load")({'rust-tools.nvim'}, { ft = "rust" }, _G.packer_plugins)]]
+time([[Defining lazy-load filetype autocommands]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
